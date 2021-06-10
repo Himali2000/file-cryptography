@@ -8,6 +8,7 @@ django = "*"
 pycryptodome = "*"
 gunicorn = "*"
 cryptography = "*"
+whitenoise = "*"
 
 [dev-packages]
 
