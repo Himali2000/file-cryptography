@@ -19,13 +19,15 @@
                     {% endif %}
                     <br></br></br>
                     {% if var.type == 'AESCBC' or var.type == 'AESCFB' %}
-                        <h6>To know about Advanced Encryption Standard (AES) <a href="{% url 'https://en.wikipedia.org/wiki/Advanced_Encryption_Standard' %}">visit here.</a></h6>
-                    {% elseif var.type == 'OTK' %}
-                        <h6>To know about One-Tap Key (OTK) <a href="{% url 'https://en.wikipedia.org/wiki/One-time_pad' %}">visit here.</a></h6>
+                        <h6>To know about Advanced Encryption Standard (AES) <a href="https://en.wikipedia.org/wiki/Advanced_Encryption_Standard">visit here.</a></h6>
+                    {% elif var.type == 'OTK' %}
+                        <h6>To know about One-Tap Key (OTK) <a href="https://en.wikipedia.org/wiki/One-time_pad">visit here.</a></h6>
                     {% else %}
-                        <h6>To know about base 64 <a href="{% url 'https://en.wikipedia.org/wiki/Base64' %}">visit here.</a></h6>
+                        <h6>To know about base 64 <a href="https://en.wikipedia.org/wiki/Base64">visit here.</a></h6>
                     {% endif %}
                     {{ var.inputfield.delete }}
+                    {{ var.keyfile.delete }}
+                    {{ var.ivfile.delete }}
             </div>
         </div>
     {% endblock content %}
