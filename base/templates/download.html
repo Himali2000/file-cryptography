@@ -12,18 +12,18 @@
                     <h5>Uploaded file size: {{ var.inputfile.size|filesizeformat }}</h4>
                     {% if var.function == 'ENCRYPT' %}
                         <h5>Encrypted file size: {{ var.encryptedfile.size|filesizeformat }}</h4>
-                        <a href="{{ var.encryptedfile.url }}" class="btn btn-success" target="_blank">Download</a>
+                        <a href="{{ var.encryptedfile.url }}" class="btn btn-success">Download</a>
                     {% else %}
                         <h5>Decrypted file size: {{ var.decryptedfile.size|filesizeformat }}</h4>
-                        <a href="{{ var.decryptedfile.url }}" class="btn btn-success" target="_blank">Download</a>
+                        <a href="{{ var.decryptedfile.url }}" class="btn btn-success">Download</a>
                     {% endif %}
                     <br></br></br>
                     {% if var.type == 'AESCBC' or var.type == 'AESCFB' %}
-                        <h6>To know about Advanced Encryption Standard (AES) <a href="https://en.wikipedia.org/wiki/Advanced_Encryption_Standard">visit here.</a></h6>
+                        <h6>To know more about Advanced Encryption Standard (AES) <a href="https://en.wikipedia.org/wiki/Advanced_Encryption_Standard" target="_blank">hit here.</a></h6>
                     {% elif var.type == 'OTK' %}
-                        <h6>To know about One-Tap Key (OTK) <a href="https://en.wikipedia.org/wiki/One-time_pad">visit here.</a></h6>
+                        <h6>To know more about One-Time Key (OTK) <a href="https://en.wikipedia.org/wiki/One-time_pad" target="_blank">hit here.</a></h6>
                     {% else %}
-                        <h6>To know about base 64 <a href="https://en.wikipedia.org/wiki/Base64">visit here.</a></h6>
+                        <h6>To know more about base 64 <a href="https://en.wikipedia.org/wiki/Base64" target="_blank">hit here.</a></h6>
                     {% endif %}
                     {{ var.inputfield.delete }}
                     {{ var.keyfile.delete }}
