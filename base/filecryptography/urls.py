@@ -1,9 +1,12 @@
 from django.urls import path
-from django.conf import settings
-from django.conf.urls.static import static
 from .views import MainpageView, DownloadpageView
+from . import views
 
 urlpatterns = [
     path('', MainpageView.as_view(), name='home'),
     path('download/', DownloadpageView.as_view(), name='download'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    #path('<str:filepath>/', views.download),
+]
+
+#handler404 = 'filecryptography.views.handler404'
+#handler500 = 'filecryptography.views.handler500'

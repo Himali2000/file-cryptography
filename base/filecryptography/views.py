@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.views.generic import CreateView, ListView
 from django.http.response import HttpResponseRedirect
+import os
+from django.conf import settings
+from django.http import HttpResponse, Http404
 from .forms import InputForm
 from .models import Cryptdb
 from cryptography.fernet import Fernet
@@ -10,6 +13,23 @@ from Crypto.Cipher import AES
 from Crypto.Random import get_random_bytes
 from Crypto.Util.Padding import pad, unpad
 import base64
+
+'''def handler404(request, exception):
+        data = {}
+        return render(request,'filecryptography/404.html', data)
+
+def handler500(request, *args, **argv):
+    return render(request, '500.html', status=500)
+'''
+
+def download(request, path):
+    file_path = os.path.join(settings.MEDIA_ROOT, path)
+    if os.path.exists(file_path):
+        with open(file_path, 'rb') as fh:
+            response = HttpResponse(fh.read())
+            response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_path)
+            return response
+    raise Http404
 
 def upload_file(request):
     if request.method == 'POST':
